@@ -16,20 +16,32 @@ public class CameraCharacter : MonoBehaviour
     public float ballCount = 15;
     public Text BallCountText;
     public Text GameOverText;
+    public GameObject restartButton;
+
+    bool isGameOver = false;
+    public bool isGamePause = false;
 
     void Start()
     {
         _cam = GetComponent<Camera>();
-
     }
 
     private void Update()
     {
+        if (isGamePause)
+        {
+            camSpeed = 0;
+        }
+        else
+        {
+            camSpeed = 2;
+        }
+
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 1 * camSpeed);
 
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
 
-        if (Input.GetMouseButtonDown(0) && ballCount > 0)
+        if (Input.GetMouseButtonDown(0) && !isGameOver && !isGamePause)
         {
             GameObject ballRigid;
             ballRigid = Instantiate(ball, transform.position, transform.rotation) as GameObject;
@@ -44,7 +56,19 @@ public class CameraCharacter : MonoBehaviour
         {
             GameOverText.gameObject.SetActive(true);
             camSpeed = 0;
-            
+            isGameOver = true;
         }
+    }
+
+    public void RestartGame()
+    {
+        isGameOver = false;
+        SceneManager.LoadScene(2);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game");
     }
 }
