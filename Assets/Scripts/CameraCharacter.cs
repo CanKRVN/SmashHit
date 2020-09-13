@@ -13,7 +13,7 @@ public class CameraCharacter : MonoBehaviour
 
     private Camera _cam;
 
-    public static float ballCount = 15;
+    public float ballCount = 15;
     public Text BallCountText;
     public Text GameOverText;
 
@@ -46,7 +46,5 @@ public class CameraCharacter : MonoBehaviour
             camSpeed = 0;
             
         }
-
-       // Debug.Log(Time.time);
     }
 }
