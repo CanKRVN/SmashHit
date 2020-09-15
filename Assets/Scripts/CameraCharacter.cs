@@ -11,6 +11,9 @@ public class CameraCharacter : MonoBehaviour
     public float ballForce;
     public float camSpeed;
 
+    public Animator leftdoor;
+    public Animator rightdoor;
+
     private Camera _cam;
 
     public float ballCount = 15;
@@ -70,5 +73,11 @@ public class CameraCharacter : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quit Game");
+    }
+
+    public void DoorAnim()
+    {
+        leftdoor.SetTrigger(1);
+        rightdoor.SetTrigger(1);
     }
 }

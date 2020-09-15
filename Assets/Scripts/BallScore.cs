@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallScore : MonoBehaviour
 {
     CameraCharacter cameraCharacter;
+   
     private void Start()
     {
         cameraCharacter = Camera.main.GetComponent<CameraCharacter>();
@@ -17,6 +18,14 @@ public class BallScore : MonoBehaviour
         {
             Destroy(other.gameObject);
             cameraCharacter.ballCount += 3;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("doorbutton"))
+        {
+            cameraCharacter.DoorAnim();
         }
     }
 }
