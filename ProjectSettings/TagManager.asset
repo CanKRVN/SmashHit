@@ -6,6 +6,8 @@ TagManager:
   tags:
   - hitobstacle
   - doorbutton
+  - left_door
+  - right_door
   layers:
   - Default
   - TransparentFX

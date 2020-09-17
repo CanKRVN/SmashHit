@@ -20,6 +20,7 @@ public class CameraCharacter : MonoBehaviour
     public Text BallCountText;
     public Text GameOverText;
     public GameObject restartButton;
+    public int passedDoor;
 
     bool isGameOver = false;
     public bool isGamePause = false;
@@ -27,6 +28,8 @@ public class CameraCharacter : MonoBehaviour
     void Start()
     {
         _cam = GetComponent<Camera>();
+        leftdoor = GameObject.FindGameObjectWithTag("left_door").GetComponent<Animator>();
+        rightdoor = GameObject.FindGameObjectWithTag("right_door").GetComponent<Animator>();
     }
 
     private void Update()
@@ -37,13 +40,13 @@ public class CameraCharacter : MonoBehaviour
         }
         else
         {
-            camSpeed = 2;
+            camSpeed = 3;
         }
 
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 1 * camSpeed);
 
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
-
+        
         if (Input.GetMouseButtonDown(0) && !isGameOver && !isGamePause)
         {
             GameObject ballRigid;
@@ -61,6 +64,7 @@ public class CameraCharacter : MonoBehaviour
             camSpeed = 0;
             isGameOver = true;
         }
+        Debug.Log(Time.time);
     }
 
     public void RestartGame()
@@ -77,7 +81,27 @@ public class CameraCharacter : MonoBehaviour
 
     public void DoorAnim()
     {
-        leftdoor.SetTrigger(1);
-        rightdoor.SetTrigger(1);
+        if (passedDoor == 0)
+        {
+            leftdoor.SetTrigger("doorbutton");
+            rightdoor.SetTrigger("doorbutton");
+        }
+        else
+        {
+            leftdoor.SetTrigger("doorbutton" + passedDoor);
+            rightdoor.SetTrigger("doorbutton" + passedDoor);
+        }
+       
+        Debug.Log("door is open");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("left_door"))
+        {
+            ballCount -= 10;
+        }
+
+        
     }
 }
