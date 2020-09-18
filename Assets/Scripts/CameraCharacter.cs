@@ -38,10 +38,15 @@ public class CameraCharacter : MonoBehaviour
         {
             camSpeed = 0;
         }
-        else
+        else if(transform.position.z < 440)
         {
             camSpeed = 3;
         }
+        else
+        {
+            camSpeed = 5.5f;
+        }
+        
 
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 1 * camSpeed);
 
@@ -100,6 +105,7 @@ public class CameraCharacter : MonoBehaviour
         if (other.gameObject.CompareTag("left_door"))
         {
             ballCount -= 10;
+            
         }
 
         

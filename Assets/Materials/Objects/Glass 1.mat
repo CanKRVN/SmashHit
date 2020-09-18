@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0ea3c9539a26c124e93ac3e269447150, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cube:
@@ -77,7 +77,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 105ffe54076c0bc4590b8229973da444, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -190,7 +190,7 @@ Material:
     - _BaseColor: {r: 0.54, g: 0.95, b: 0.99, a: 0.5}
     - _BumpDirection: {r: 1, g: 1, b: -1, a: 1}
     - _BumpTiling: {r: 1, g: 1, b: -2, a: 3}
-    - _Color: {r: 0.4716981, g: 0.42497328, b: 0.42497328, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _DistortParams: {r: 1, g: 1, b: 2, a: 1.15}
     - _EmisColor: {r: 0.2, g: 0.2, b: 0.2, a: 0}
     - _Emission: {r: 0.27205884, g: 0.27205884, b: 0.27205884, a: 0}
@@ -206,11 +206,11 @@ Material:
     - _HorizonColor: {r: 0.172, g: 0.463, b: 0.435, a: 1}
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _InvFadeParemeter: {r: 0.15, g: 0.15, b: 0.5, a: 1}
-    - _ReflectColor: {r: 0.46226418, g: 0.43411696, b: 0.42955682, a: 0}
+    - _ReflectColor: {r: 0, g: 0.94248676, b: 1, a: 0}
     - _ReflectionColor: {r: 0.54, g: 0.95, b: 0.99, a: 0.5}
     - _RefrColor: {r: 0.34, g: 0.85, b: 0.92, a: 1}
     - _SpecColMult: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 0}
     - _SpecularColor: {r: 0.72, g: 0.72, b: 0.72, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
     - _WorldLightDir: {r: 0, g: 0.1, b: -0.5, a: 0}
