@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Break : MonoBehaviour 
 {
@@ -18,9 +17,9 @@ public class Break : MonoBehaviour
 
 			foreach (Collider hit in colliders)
 			{
-				if (hit.rigidbody)
+				if (hit.GetComponent<Rigidbody>())
 				{
-					hit.rigidbody.AddExplosionForce(power*collision.relativeVelocity.magnitude, explosionPos, radius, upwards);
+					hit.GetComponent<Rigidbody>().AddExplosionForce(power*collision.relativeVelocity.magnitude, explosionPos, radius, upwards);
 				}
 			}
 		}

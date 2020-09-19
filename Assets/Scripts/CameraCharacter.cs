@@ -20,21 +20,23 @@ public class CameraCharacter : MonoBehaviour
     public Text BallCountText;
     public Text GameOverText;
     public GameObject restartButton;
+    public GameObject finishPanel;
     public int passedDoor;
 
     bool isGameOver = false;
     public bool isGamePause = false;
+    bool isGameFinished = false;
 
     void Start()
     {
         _cam = GetComponent<Camera>();
-        leftdoor = GameObject.FindGameObjectWithTag("left_door").GetComponent<Animator>();
-        rightdoor = GameObject.FindGameObjectWithTag("right_door").GetComponent<Animator>();
+        //leftdoor = GameObject.FindGameObjectWithTag("left_door").GetComponent<Animator>();
+        //rightdoor = GameObject.FindGameObjectWithTag("right_door").GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (isGamePause)
+        if (isGamePause && isGameFinished)
         {
             camSpeed = 0;
         }
@@ -52,7 +54,7 @@ public class CameraCharacter : MonoBehaviour
 
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
         
-        if (Input.GetMouseButtonDown(0) && !isGameOver && !isGamePause)
+        if (Input.GetMouseButtonDown(0) && !isGameOver && !isGamePause && !isGameFinished)
         {
             GameObject ballRigid;
             ballRigid = Instantiate(ball, transform.position, transform.rotation) as GameObject;
@@ -108,6 +110,15 @@ public class CameraCharacter : MonoBehaviour
             
         }
 
-        
+        if (other.gameObject.CompareTag("glassobstacle"))
+        {
+            ballCount -= 10;
+        }
+
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            finishPanel.gameObject.SetActive(true);
+            isGameFinished = true;
+        }
     }
 }

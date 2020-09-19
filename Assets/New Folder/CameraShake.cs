@@ -22,7 +22,7 @@ public class CameraShake : MonoBehaviour
     *	FUNCTION: Set the intensity of camera vibration
     *	PARAMETER 1: Intensity value of the vibration
     */
-    public void setCameraShakeImpulseValue(int iShakeValue)
+    public void SetCameraShakeImpulseValue(int iShakeValue)
     {
        
         if (iShakeValue == 1)

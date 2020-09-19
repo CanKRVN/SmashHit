@@ -23,15 +23,6 @@ public class BallScore : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("hitobstacle"))
-        {
-            Destroy(other.gameObject);
-            cameraCharacter.ballCount += 3;
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("doorbutton"))
@@ -40,6 +31,12 @@ public class BallScore : MonoBehaviour
             Debug.Log("you shot button");
             cameraCharacter.passedDoor++;
 
+        }
+
+        if (collision.gameObject.CompareTag("hitobstacle"))
+        {
+            Destroy(collision.gameObject);
+            cameraCharacter.ballCount += 3;
         }
     }
 }

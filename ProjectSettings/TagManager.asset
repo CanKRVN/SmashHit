@@ -8,6 +8,9 @@ TagManager:
   - doorbutton
   - left_door
   - right_door
+  - glassobstacle
+  - glass
+  - destructive
   layers:
   - Default
   - TransparentFX
